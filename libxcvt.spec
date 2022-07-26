@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x14706DBE1E4B4540 (fourdan@xfce.org)
 #
 Name     : libxcvt
-Version  : 0.1.1
-Release  : 1
-URL      : https://www.x.org/releases/individual/lib/libxcvt-0.1.1.tar.xz
-Source0  : https://www.x.org/releases/individual/lib/libxcvt-0.1.1.tar.xz
-Source1  : https://www.x.org/releases/individual/lib/libxcvt-0.1.1.tar.xz.sig
+Version  : 0.1.2
+Release  : 2
+URL      : https://www.x.org/releases/individual/lib/libxcvt-0.1.2.tar.xz
+Source0  : https://www.x.org/releases/individual/lib/libxcvt-0.1.2.tar.xz
+Source1  : https://www.x.org/releases/individual/lib/libxcvt-0.1.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT
@@ -72,15 +72,15 @@ man components for the libxcvt package.
 
 
 %prep
-%setup -q -n libxcvt-0.1.1
-cd %{_builddir}/libxcvt-0.1.1
+%setup -q -n libxcvt-0.1.2
+cd %{_builddir}/libxcvt-0.1.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1635378434
+export SOURCE_DATE_EPOCH=1658870215
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -94,7 +94,7 @@ ninja -v -C builddir
 
 %install
 mkdir -p %{buildroot}/usr/share/package-licenses/libxcvt
-cp %{_builddir}/libxcvt-0.1.1/COPYING %{buildroot}/usr/share/package-licenses/libxcvt/44a591f7860243fd4ae5984244433e3e1c78ba35
+cp %{_builddir}/libxcvt-%{version}/COPYING %{buildroot}/usr/share/package-licenses/libxcvt/44a591f7860243fd4ae5984244433e3e1c78ba35
 DESTDIR=%{buildroot} ninja -C builddir install
 
 %files
@@ -114,7 +114,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libxcvt.so.0
-/usr/lib64/libxcvt.so.0.1.1
+/usr/lib64/libxcvt.so.0.1.2
 
 %files license
 %defattr(0644,root,root,0755)
